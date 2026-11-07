@@ -1,5 +1,8 @@
 # Danfoss Link for Home Assistant
 
+[![Open your Home Assistant instance and open Danfoss Link in the
+Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=LBekel&repository=ha-DanfossLink&category=integration)
+
 Experimental custom integration that creates **one `climate` entity per
 room**. It connects Home Assistant directly to the paired Link CC through
 Danfoss MDG servers. No gateway service, MQTT broker, WSL installation on the
