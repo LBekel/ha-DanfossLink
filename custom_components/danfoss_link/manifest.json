@@ -1,0 +1,11 @@
+{
+  "domain": "danfoss_link",
+  "name": "Danfoss Link",
+  "codeowners": ["@LBekel"],
+  "config_flow": true,
+  "documentation": "https://github.com/LBekel/ha-DanfossLink",
+  "issue_tracker": "https://github.com/LBekel/ha-DanfossLink/issues",
+  "iot_class": "cloud_polling",
+  "requirements": ["tlslite-ng==0.8.2", "ecdsa==0.19.1", "asn1crypto==1.5.1"],
+  "version": "0.2.0"
+}

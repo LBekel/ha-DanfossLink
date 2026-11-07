@@ -1,0 +1,51 @@
+{
+  "title": "Danfoss Link",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Danfoss Link verbinden",
+        "menu_options": {
+          "pair": "Mit Verbindungscode koppeln",
+          "import": "Vorhandene Kopplung importieren"
+        }
+      },
+      "import": {
+        "title": "Vorhandene Kopplung importieren",
+        "description": "Die vorhandene PACE-Kopplung in ein privates Verzeichnis auf dem Home-Assistant-Server kopieren: client.pem, client-key.pem und genau eine pairing-*.json. Den absoluten Pfad oder einen Pfad relativ zum Home-Assistant-Konfigurationsverzeichnis eingeben. Die Einrichtung veraendert keine Heizungseinstellungen.",
+        "data": {"identity_directory": "Verzeichnis der gekoppelten Identitaet"}
+      },
+      "pair": {
+        "title": "Kopplung vorbereiten",
+        "description": "Die Kopplung am Controller noch nicht aktivieren. Weiter erzeugt eine Home-Assistant-Identitaet und prueft die MDG-Verbindung. Erst auf der naechsten Seite, die nach dem Verbindungscode fragt, die Kopplung aktivieren. Heizungseinstellungen werden nicht geaendert."
+      },
+      "pair_code": {
+        "title": "Verbindungscode eingeben",
+        "description": "Die Vorbereitung ist abgeschlossen. Jetzt am Danfoss Link CC die Kopplung aktivieren und den vollstaendigen Remote-Verbindungscode innerhalb einer Minute eingeben. Leerzeichen und Bindestriche sind erlaubt. Nach einem fehlgeschlagenen Versuch einen frischen Code anfordern. Der Code wird nicht gespeichert.",
+        "data": {"pairing_code": "Verbindungscode"}
+      },
+      "finish": {
+        "title": "Authentifizierte Kopplung abschliessen",
+        "description": "PACE-Kopplung und Kontaktaustausch waren erfolgreich. Weiter speichert die Kopplung und liest die Raeume. Bei einem Fehler das angezeigte Problem beheben und hier erneut versuchen; ein neuer Verbindungscode ist nicht noetig."
+      }
+    },
+    "error": {
+      "invalid_identity": "Die gekoppelte Identitaet fehlt, ist nicht lesbar oder inkonsistent. Alle drei Dateien und die Zugriffsrechte pruefen.",
+      "invalid_auth": "Das Server- oder Controller-Zertifikat konnte nicht authentifiziert werden. Diese Pruefung nicht umgehen.",
+      "cannot_connect": "Controller oder MDG-Server sind nicht erreichbar. Internetverbindung pruefen und erneut versuchen.",
+      "cannot_prepare": "Die Kopplung konnte nicht vorbereitet werden. Speicherrechte und Internetverbindung pruefen und vor dem Anfordern eines Codes erneut versuchen.",
+      "cannot_store_pairing": "Identitaet oder Kopplung konnten nicht gespeichert werden. Freien Speicherplatz und Rechte unter .storage/danfoss_link pruefen. Vorhandene Identitaeten werden nicht ueberschrieben.",
+      "invalid_code": "Den vollstaendigen numerischen Verbindungscode eingeben, nicht nur die letzten fuenf Stellen.",
+      "local_code": "Codes mit 0000 am Anfang benoetigen eine lokale LAN-Kopplung, die nicht unterstuetzt wird. Einen Remote-Verbindungscode verwenden.",
+      "pairing_unavailable": "Keine aktive Kopplung gefunden. Der Code kann falsch oder abgelaufen sein. Kopplung erneut aktivieren und einen frischen Code eingeben.",
+      "pairing_proof_failed": "Die PACE-Authentifizierung ist fehlgeschlagen. Es wurde keinem Controller vertraut. Kopplung erneut aktivieren und einen frischen Code eingeben.",
+      "pairing_failed": "Die Kopplung wurde nicht abgeschlossen. Controller und Verbindung pruefen und danach bewusst mit einem frischen Code erneut versuchen.",
+      "wrong_controller": "Dieser Code gehoert zu einem anderen Controller. Fuer die erneute Authentifizierung den urspruenglichen Controller verwenden.",
+      "already_configured": "Dieser Controller ist bereits eingerichtet. Die vorhandene Integration verwenden."
+    },
+    "abort": {
+      "already_configured": "Dieser Controller ist bereits eingerichtet.",
+      "unique_id_mismatch": "Diese Kopplung gehoert zu einem anderen Controller.",
+      "reauth_successful": "Die gekoppelte Identitaet wurde aktualisiert."
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "title": "Danfoss Link",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Danfoss Link",
+        "menu_options": {
+          "pair": "Pair using a connection code",
+          "import": "Import an existing pairing"
+        }
+      },
+      "import": {
+        "title": "Import an existing pairing",
+        "description": "Copy the existing PACE-paired identity into a private directory on the Home Assistant server: client.pem, client-key.pem and exactly one pairing-*.json. Enter its absolute path or a path relative to the Home Assistant configuration directory. No heating settings are changed during setup.",
+        "data": {"identity_directory": "Paired identity directory"}
+      },
+      "pair": {
+        "title": "Prepare pairing",
+        "description": "Do not activate pairing on the controller yet. Continue to generate a Home Assistant identity and check the MDG connection. Activate pairing only when the next page asks for the connection code. No heating settings will be changed."
+      },
+      "pair_code": {
+        "title": "Enter the connection code",
+        "description": "Preparation is complete. Activate pairing on the Danfoss Link CC now and enter the complete remote connection code within one minute. Spaces and hyphens are accepted. After a failed attempt, request a fresh code. The code is not saved.",
+        "data": {"pairing_code": "Connection code"}
+      },
+      "finish": {
+        "title": "Finish the authenticated pairing",
+        "description": "PACE pairing and contact exchange succeeded. Continue to save the pairing and read the rooms. If this fails, fix the reported problem and retry here; a new connection code is not needed."
+      }
+    },
+    "error": {
+      "invalid_identity": "The paired identity is missing, unreadable or inconsistent. Check all three files and their permissions.",
+      "invalid_auth": "The server or controller certificate could not be authenticated. Do not bypass this check.",
+      "cannot_connect": "Could not reach the controller or MDG servers. Check the internet connection and retry.",
+      "cannot_prepare": "Could not prepare pairing. Check storage permissions and the internet connection, then retry before requesting a code.",
+      "cannot_store_pairing": "Could not save the private identity or pairing. Check free disk space and permissions under .storage/danfoss_link. Existing identities are not overwritten.",
+      "invalid_code": "Enter the complete numeric connection code, not only its last five digits.",
+      "local_code": "Codes starting with 0000 require local LAN pairing, which is not supported. Use a remote connection code.",
+      "pairing_unavailable": "No active pairing was found. The code may be incorrect or expired. Activate pairing again and enter a fresh code.",
+      "pairing_proof_failed": "PACE authentication failed. No controller was trusted. Activate pairing again and enter a fresh code.",
+      "pairing_failed": "Pairing did not complete. Check the controller and connection, then explicitly retry with a fresh code.",
+      "wrong_controller": "This code belongs to a different controller. Reauthentication must use the original controller.",
+      "already_configured": "This controller is already configured. Use its existing integration instead."
+    },
+    "abort": {
+      "already_configured": "This controller is already configured.",
+      "unique_id_mismatch": "This pairing belongs to a different controller.",
+      "reauth_successful": "The paired identity was updated successfully."
+    }
+  }
+}
